@@ -12,3 +12,12 @@ cp -r /lib/pager/themes/wargames/ /root/themes/mycooltheme
 
 ## Delete themes
 rm -r /root/themes/mycooltheme
+
+## Directions
+open terminal on your PC
+ssh root@172.16.52.1
+cp -r /lib/pager/themes/wargames/ /root/themes/mycooltheme
+exit
+scp -r .\assets\ root@172.16.52.1:/root/themes/mycooltheme/
+scp -r .\components\ root@172.16.52.1:/root/themes/mycooltheme/
+Settings, General, Theme, select mycooltheme
