@@ -1,0 +1,11 @@
+
+## Themes
+Locations of files
+/lib/pager/themes/wargames (This is the default location)
+/root/themes (This is the location of new themes that you add)
+
+## Secure Copy Paste over SSH
+scp -r .\New-Theme\ root@172.16.52.1:/root/themes/
+
+## Copy Paste
+cp -r /lib/pager/themes/wargames/ /root/themes/mycooltheme
