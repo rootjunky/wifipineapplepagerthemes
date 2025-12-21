@@ -1,32 +1,3 @@
-
-## Themes
-Locations of files
-/lib/pager/themes/wargames (This is the default location)
-/root/themes (This is the location of new themes that you add)
-
-## Secure Copy Paste over SSH
-scp -r .\New-Theme\ root@172.16.52.1:/root/themes/
-
-## Copy Paste
-cp -r /lib/pager/themes/wargames/ /root/themes/mycooltheme
-
-## Delete themes
-rm -r /root/themes/mycooltheme
-
-## Directions
-open terminal on your PC
-ssh root@172.16.52.1
-cp -r /lib/pager/themes/wargames/ /root/themes/mycooltheme
-exit
-scp -r .\assets\ root@172.16.52.1:/root/themes/mycooltheme/
-scp -r .\components\ root@172.16.52.1:/root/themes/mycooltheme/
-Settings, General, Theme, select mycooltheme
-
-
-## Ringtones Directions
-scp -r .\starwars.rtttl root@172.16.52.1:/lib/pager/ringtones
-select the ringtone from settings
-
 ## Themes
 
 ### Locations of Files
