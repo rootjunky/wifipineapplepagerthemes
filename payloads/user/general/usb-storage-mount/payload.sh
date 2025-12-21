@@ -11,14 +11,19 @@ DEVICE="/dev/sda1"
 mkdir -p "$MOUNTPOINT"
 
 # Check if device is mounted
+# Check if device is mounted
 if mount | grep -q "$DEVICE"; then
     echo "$DEVICE is already mounted. Unmounting..."
     umount "$DEVICE"
+    USB_INFO=$(lsblk | grep sda)
+    LOG "$USB_INFO"
     LOG "USB device unmounted"
     echo "Unmounted $DEVICE"
 else
     echo "$DEVICE is not mounted. Mounting..."
     mount "$DEVICE" "$MOUNTPOINT"
+    USB_INFO=$(lsblk | grep sda)
+    LOG "$USB_INFO"
     LOG "USB device mounted at /mnt/usb/"
     echo "Mounted $DEVICE at $MOUNTPOINT"
 fi
