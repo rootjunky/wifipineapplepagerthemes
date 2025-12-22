@@ -4,7 +4,7 @@
 # Author: RootJunky
 # Version: 1
 
-MOUNTPOINT="/mnt/usb"
+MOUNTPOINT="/usb"
 DEVICE="/dev/sda1"
 
 # Create mount point if it doesn't exist
@@ -24,6 +24,6 @@ else
     mount "$DEVICE" "$MOUNTPOINT"
     USB_INFO=$(lsblk | grep sda)
     LOG "$USB_INFO"
-    LOG "USB device mounted at /mnt/usb/"
+    LOG "USB device mounted at /usb"
     echo "Mounted $DEVICE at $MOUNTPOINT"
 fi
