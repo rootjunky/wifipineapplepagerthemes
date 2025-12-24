@@ -1,10 +1,23 @@
 #!/bin/bash
 # Title: Example Handshake Capture Alert
 # Description: Alert human readable summary
-# Author: Hak5Darren
+# Author: Hak5Darren Modified
 # Version: 1
 
-ALERT "$_ALERT_HANDSHAKE_SUMMARY"
+PCAP="$_ALERT_HANDSHAKE_PCAP_PATH"
+
+# Extract SSID from beacon frames
+SSID=$(tcpdump -r "$PCAP" -e -I -s 256 \
+  | sed -n 's/.*Beacon (\([^)]*\)).*/\1/p' \
+  | head -n 1)
+
+# Fallback if SSID not found
+[ -n "$SSID" ] || SSID="UNKNOWN_SSID"
+
+# Build enhanced alert message
+ALERT "SSID: $SSID | $_ALERT_HANDSHAKE_SUMMARY"
+
+# ALERT "$_ALERT_HANDSHAKE_SUMMARY"
 
 # Additional variables include:
 # $_ALERT_HANDSHAKE_SUMMARY             human-readable handshake summary "handshake AP ... CLIENT ... packets..."
